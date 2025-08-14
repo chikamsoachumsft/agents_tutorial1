@@ -1,3 +1,12 @@
+<!--
+/**
+ * GameList Svelte component for the Tailspin Toys Crowd Funding platform.
+ * 
+ * This component displays a grid of games available for crowdfunding,
+ * including loading states, error handling, and game cards with links
+ * to detailed game information.
+ */
+-->
 <script lang="ts">
     import { onMount } from "svelte";
 
@@ -13,6 +22,11 @@
     let loading = true;
     let error: string | null = null;
 
+    /**
+     * Fetches games data from the API.
+     * Updates the component state with loading status and game data.
+     * Handles API errors and displays appropriate error messages.
+     */
     const fetchGames = async () => {
         loading = true;
         try {
