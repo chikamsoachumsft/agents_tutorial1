@@ -1,6 +1,6 @@
 # Tailspin Toys Crowd Funding Development Guidelines
 
-This is a crowdfunding platform for games with a developer theme. The application uses a Flask backend API with SQLAlchemy ORM for database interactions, and an Astro/Svelte frontend with Tailwind CSS for styling. Please follow these guidelines when contributing:
+This is a crowdfunding platform for games with a developer theme. The application uses a Flask backend API with SQLAlchemy ORM for database interactions, and an Astro/Svelte frontend with Tailwind CSS[...]
 
 ## Code standards
 
@@ -12,6 +12,18 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 - When updating models, ensure database migrations are included if needed
 - When adding new functionality, make sure you update the README
 - Make sure all guidance in the Copilot Instructions file is updated with any relevant changes, including to project structure and scripts, and programming guidance
+
+### Code Review Instructions
+
+- All new pull requests must be reviewed by at least one other contributor before merging.
+- Reviewers should check for adherence to code formatting requirements and project patterns described in this file.
+- Confirm that all tests pass and the relevant scripts have been used (see "Required Before Each Commit" and "Scripts" sections).
+- Ensure new functionality includes documentation updates, if applicable.
+- Review API changes for RESTful design and use of Flask blueprints.
+- Validate frontend changes for proper use of Svelte/Astro patterns and Tailwind CSS styling guidelines.
+- Check for security best practices, especially in workflows and dependencies.
+- Add comments to code and workflows where necessary for clarity.
+- Provide constructive feedback to improve code quality and maintainability.
 
 ### Code formatting requirements
 
