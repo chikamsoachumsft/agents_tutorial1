@@ -10,13 +10,39 @@
         "GitHub.copilot-chat",
         "ms-python.vscode-pylance",
         "svelte.svelte-vscode",
-        "astro-build.astro-vscode"
+        "astro-build.astro-vscode",
+        // Recommended: add Python extension for improved Python development
+        "ms-python.python",
+        // Add Docker extension for container management
+        "ms-azuretools.vscode-docker",
+        // Add Remote Containers for improved dev container experience
+        "ms-vscode-remote.remote-containers"
       ]
     }
   },
   "features": {
     "ghcr.io/devcontainers/features/dotnet:2": {
       "version": "9.0"
-    }
-  }
+    },
+    // Add Node.js for JavaScript/TypeScript development
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    // Add Python for Python development
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    },
+    // Add GitHub CLI for easier repo/devops interaction
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  // Optionally set container settings for improved dev experience
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "python.pythonPath": "/usr/local/bin/python3"
+  },
+  // (Optional) Forward common ports for web development
+  "forwardPorts": [3000, 5000, 8000],
+  // (Optional) Configure workspace for recommended behaviors
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace"
 }
