@@ -24,6 +24,7 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 - Check for security best practices, especially in workflows and dependencies.
 - Add comments to code and workflows where necessary for clarity.
 - Provide constructive feedback to improve code quality and maintainability.
+- Code review comments should be in spanish
 
 ### Code formatting requirements
 
