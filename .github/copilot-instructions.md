@@ -35,6 +35,17 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 - Use SQLAlchemy models for database interactions
 - Use Flask blueprints for organizing routes
 - Follow RESTful API design principles
+- Use the standardized response format from `utils.response_formatter` for all API endpoints
+- Implement proper error handling with appropriate HTTP status codes
+
+### Authentication and Security
+
+- Use JWT tokens for authentication (utilities in `utils.jwt_utils`)
+- Apply `@require_auth` decorator for protected routes
+- Hash passwords with bcrypt (minimum 12 salt rounds)
+- Validate and sanitize all user input
+- Never expose sensitive data (passwords, tokens) in logs or responses
+- Use environment variables for sensitive configuration (see `.env.example`)
 
 ### Svelte and Astro Patterns
 
@@ -69,15 +80,42 @@ This is a crowdfunding platform for games with a developer theme. The applicatio
 
 - `server/`: Flask backend code
   - `models/`: SQLAlchemy ORM models
+    - `user.py`: User authentication model
   - `routes/`: API endpoints organized by resource
+    - `auth.py`: Authentication endpoints (register, login, logout, refresh)
+    - `users.py`: User management endpoints (profile CRUD)
+    - `health.py`: Health check endpoint
+    - `games.py`: Game catalog endpoints
   - `tests/`: Unit tests for the API
+    - `test_auth.py`: Authentication tests (20 tests)
+    - `test_health.py`: Health endpoint tests
+    - `test_games.py`: Game endpoint tests
   - `utils/`: Utility functions and helpers
+    - `jwt_utils.py`: JWT token generation and verification
+    - `auth_middleware.py`: Authentication decorator
+    - `response_formatter.py`: Standardized API response formatting
+    - `validation.py`: Input validation and sanitization
+    - `database.py`: Database initialization utilities
 - `client/`: Astro/Svelte frontend code
   - `src/components/`: Reusable Svelte components
   - `src/layouts/`: Astro layout templates
   - `src/pages/`: Astro page routes
   - `src/styles/`: CSS and Tailwind configuration
 - `scripts/`: Development and deployment scripts
-- `data/`: Database files
+- `data/`: Database files (SQLite by default)
 - `docs/`: Project documentation
+  - `API.md`: Complete API documentation
 - `README.md`: Project documentation
+- `.env.example`: Environment variable template
+
+## API Standards
+
+All API endpoints should:
+1. Use the `/api/v1/` prefix for versioning
+2. Return responses using `success_response()` or `error_response()` from `utils.response_formatter`
+3. Include proper HTTP status codes (200, 201, 400, 401, 404, 409, 500)
+4. Validate input data appropriately
+5. Handle errors gracefully with meaningful messages
+
+See `docs/API.md` for complete API documentation.
+

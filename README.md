@@ -16,6 +16,35 @@ A script file has been created to launch the site. You can run it by:
 
 Then navigate to the [website](http://localhost:4321) to see the site!
 
+## API Documentation
+
+The backend API includes authentication, user management, and game catalog features. For complete API documentation, see [docs/API.md](./docs/API.md).
+
+### Key Features
+
+- **Authentication**: JWT-based authentication with register, login, and token refresh
+- **User Management**: Profile management and account operations
+- **Security**: Rate limiting, CORS, security headers, password hashing with bcrypt
+- **Standardized Responses**: All endpoints return consistent JSON response format
+- **Health Check**: Endpoint to verify API status
+
+## Configuration
+
+1. Copy the example environment file:
+```bash
+cp .env.example .env
+```
+
+2. Update the `.env` file with your configuration (especially `JWT_SECRET` for production)
+
+## Testing
+
+Run all backend tests:
+
+```bash
+./scripts/run-server-tests.sh
+```
+
 ## License 
 
 This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) for the full terms.
