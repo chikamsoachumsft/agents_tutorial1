@@ -1,5 +1,6 @@
 import os
 import logging
+from typing import Any, Optional
 from flask import Flask
 from flask_cors import CORS
 
@@ -17,7 +18,7 @@ logger = logging.getLogger(__name__)
 # Get the server directory path
 base_dir: str = os.path.abspath(os.path.dirname(__file__))
 
-def create_app(config: dict = None) -> Flask:
+def create_app(config: Optional[dict[str, Any]] = None) -> Flask:
     """
     Application factory for creating and configuring the Flask app.
     
